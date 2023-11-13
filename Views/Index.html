@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Password Generator</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <h1>PassGenerator</h1>
+            <input type="text" id="password-to-find" placeholder="Enter the application's name">
+            <button>Search</button>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <!-- Input where it has to be shown the password generated -->
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Password..." aria-label="Input group example"
+                    aria-describedby="basic-addon1">
+                <button class="input-group-text" id="basic-addon1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-copy" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V2Zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6ZM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1H2Z">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Progression -->
+            <section class="m-3">
+                <label for="num-characts" class="form-label">Number of characters: <span id="number-characts-selected"></span></label>
+                <input type="range" class="form-range" max="33" id="num-characts" value="7">
+            </section>
+
+            <!-- Button for generating the password -->
+            <div>
+                <button id="generate-btn">Generate Password</button>
+            </div>
+
+            <!-- All the config for generating the password -->
+            <section>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="lowercase-check" checked>
+                    <label class="form-check-label" for="lowercase-check">Lowercase [a,g,y,e]</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="uppercase-check">
+                    <label class="form-check-label" for="lowercase-check">Uppercase [A,G,Y,E]</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="numbers-check">
+                    <label class="form-check-label" for="lowercase-check">Numbers [4,8,2,3]</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="symbols-check">
+                    <label class="form-check-label" for="lowercase-check">Symbols [%,$,#,&]</label>
+                </div>
+            </section>
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+
+        <script src="../App/main.js"></script>
+</body>
+
+</html>
