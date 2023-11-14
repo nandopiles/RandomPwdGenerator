@@ -26,8 +26,8 @@
             <!-- Input where it has to be shown the password generated -->
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="Password..." aria-label="Input group example"
-                    aria-describedby="basic-addon1">
-                <button class="input-group-text" id="basic-addon1">
+                    aria-describedby="basic-addon1" id="password-generated">
+                <button class=" input-group-text" id="copy-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-copy" viewBox="0 0 16 16">
                         <path fill-rule="evenodd"
@@ -39,7 +39,8 @@
 
             <!-- Progression -->
             <section class="m-3">
-                <label for="num-characts" class="form-label">Number of characters: <span id="number-characts-selected"></span></label>
+                <label for="num-characts" class="form-label">Number of characters: <span
+                        id="number-characts-selected"></span></label>
                 <input type="range" class="form-range" max="33" id="num-characts" value="7">
             </section>
 
@@ -81,7 +82,7 @@
         integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
         </script>
 
-        <script src="../App/Main.js"></script>
+    <script src="../App/Main.js"></script>
 </body>
 
 </html>

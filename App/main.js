@@ -1,7 +1,9 @@
 const minValueRange = 7;
 const maxValueRange = 33;
 const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+const passwordGeneratedInput = document.getElementById('password-generated');
 let checkboxesChecked = ['lowercase-check'];
+let dictionaryToUse = "";
 
 
 
@@ -23,58 +25,65 @@ const setInitialRangeValues = () => {
 const chooseRandomCharacter = (dictionary) => { return dictionary[Math.floor(Math.random() * dictionary.length)] };
 
 /**
- * Generates a random letter in upper case or lower case depending on the option passed by parameter.
+ * Contains a letter's dictionary in upper case or lower case depending on the option passed by parameter.
  * 
- * This will say that you want to generate an upper case letter.
+ * This will say that you want to have an upper case dictionary.
  * @example lettersDictionary(true)
  * 
- * @param {Boolean} isUpperCase if you passed 'true', the letter given will be uppercase.
- * @returns {String} a single random letter.
+ * @param {Boolean} isUpperCase if you passed 'true', the dictionary given will be in uppercase.
+ * @returns {String} the dictionary.
  */
 const lettersDictionary = (isUpperCase) => {
     let letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     if (!isUpperCase)
-        letters = letters.toLowerCase();
-
-    return chooseRandomCharacter(letters);
-}
-
-/**
- * Generates a random number without decimals.
- * @returns {String} a random number
- */
-const numbersDictionary = () => {
-    const numbers = "1234567890";
-
-    return chooseRandomCharacter(numbers);
-}
+        return letters.toLowerCase();
+    return letters;
+};
 
 /**
- * Generates a random symbol.
- * @returns {String} a single symbol.
+ * Contains a number's integer dictionary.
+ * @returns {String} the dictionary.
  */
-const symbolsDictionary = () => {
-    const symbols = "~!@#$%^&*()_-=+[]{};:<>/?";
+const numbersDictionary = () => { return "1234567890"; };
 
-    return chooseRandomCharacter(symbols);
-}
+/**
+ * Contains a symbol's dictionary.
+ * @returns {String} the dictionary.
+ */
+const symbolsDictionary = () => { return "~!@#$%^&*()_-=+[]{};:<>/?" };
 
+/**
+ * Generates a random password with th dictionary 
+ * @param {any} length
+ * @returns {any}
+ */
+const generatePassword = (dictionary, length) => {
+    let password = "";
+
+    for (let i = 0; i < length; i++) {
+        password += chooseRandomCharacter(dictionary);
+    }
+    return password;
+};
 
 
 setInitialRangeValues();
 document.getElementById('num-characts').addEventListener('mousemove', () =>
     document.getElementById('number-characts-selected').textContent = document.getElementById('num-characts').value);
 
-const actions = {
-    'lowercase-check': () => console.log('lower'),
-    'uppercase-check': () => console.log('upper'),
-    'numbers-check': () => console.log('numbers'),
-    'symbols-check': () => console.log('symbols')
+const addDictionaries = {
+    'lowercase-check': () => dictionaryToUse += lettersDictionary(false),
+    'uppercase-check': () => dictionaryToUse += lettersDictionary(true),
+    'numbers-check': () => dictionaryToUse += numbersDictionary(),
+    'symbols-check': () => dictionaryToUse += symbolsDictionary(false)
 };
 
-
-
+/**
+ * Push the checked checkboxes into a list.
+ * @param {String} checkbox id of the current checkbox.
+ * @returns {void}
+ */
 checkboxes.forEach((checkbox) => {
     checkbox.addEventListener('click', () => {
         checkboxesChecked = [];
@@ -87,7 +96,9 @@ checkboxes.forEach((checkbox) => {
 });
 
 document.getElementById('generate-btn').addEventListener('click', () => {
+    dictionaryToUse = "";
     checkboxesChecked.forEach((checkbox) => {
-        actions[checkbox]();
+        addDictionaries[checkbox]();
     })
+    passwordGeneratedInput.value = generatePassword(dictionaryToUse, document.getElementById('num-characts').value);
 });
