@@ -1,0 +1,45 @@
+#header-container {
+    background-color: #112f3d;
+}
+
+#jumbotron-container {
+    padding-top: 30px;
+    background-color: #aee3eb;
+}
+
+body {
+    font-family: Helvetica;
+    font-size: 18.5px;
+}
+
+#logo {
+    width: 75%;
+    height: 80%;
+}
+
+#input-container {
+    padding-top: 50px;
+}
+
+#progression-container {
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+#generate-btn {
+    /* padding-top: 25px; */
+    width: 500px;
+}
+
+#options-section {
+    padding-top: 25px;
+}
+
+#options-container {
+    background-color: #e2eeff;
+    border-radius: 15px;
+}
+
+#options-subcontainer {
+    padding: 25px;
+}

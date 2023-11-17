@@ -1,4 +1,4 @@
-const minValueRange = 7;
+const minValueRange = 10;
 const maxValueRange = 33;
 const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 const passwordGeneratedInput = document.getElementById('password-generated');
@@ -34,7 +34,7 @@ const copyPasswordGenerated = () => {
     setTimeout(() => {
         document.getElementById('copy-btn').innerHTML = "";
         document.getElementById('copy-btn').innerHTML = initialIconElement;
-    }, 500);
+    }, 700);
 };
 
 /**

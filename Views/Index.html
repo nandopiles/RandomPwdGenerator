@@ -11,23 +11,39 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="../Styles/Style.css">
 </head>
 
 <body>
-    <header>
-        <nav>
-            <h1>PassGenerator</h1>
-            <input type="text" id="password-to-find" placeholder="Enter the application's name">
-            <button>Search</button>
-        </nav>
-    </header>
-    <main>
-        <section>
+    <div class="container-fluid">
+        <header>
+            <nav>
+                <div class="row d-flex align-items-center" id="header-container">
+                    <div class="col-3">
+                        <img src="../Images/logo.png" alt="Application logo" id="logo">
+                    </div>
+                    <div class="col-4"></div>
+                    <div class="col-5">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" id="password-to-find"
+                                placeholder="Enter the application's name">
+                            <button class="btn btn-outline-primary" type="button">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+            <div class="p-5 mb-4 d-flex row" id="jumbotron-container">
+                <div class="container-fluid py-1 d-flex align-items-center justify-content-center">
+                    <h1 class="display-5 fw-bold" id="text">> PassGenerator; )</h1>
+                </div>
+            </div>
             <!-- Input where it has to be shown the password generated -->
-            <div class="input-group">
+            <div class="input-group w-75 mx-auto" id="input-container">
                 <input type="text" class="form-control" placeholder="Password..." aria-label="Input group example"
                     aria-describedby="basic-addon1" id="password-generated" disabled>
-                <button class=" input-group-text" id="copy-btn">
+                <button class=" input-group-text h-auto" id="copy-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-copy" viewBox="0 0 16 16">
                         <path fill-rule="evenodd"
@@ -45,52 +61,59 @@
                 </button>
             </div>
 
-            <!-- Progression -->
-            <section class="m-3">
-                <label for="num-characts" class="form-label">Number of characters: <span
-                        id="number-characts-selected"></span></label>
-                <input type="range" class="form-range" max="33" id="num-characts" value="7">
-            </section>
+            <!-- Progression Bar -->
+            <div class="row justify-content-center" id="progression-container">
+                <section class="col-8">
+                    <label for="num-characts" class="form-label">Number of characters: <span
+                            id="number-characts-selected"></span></label>
+                    <input type="range" class="form-range" max="33" id="num-characts" value="7">
+                </section>
+            </div>
 
             <!-- Button for generating the password -->
-            <div>
-                <button id="generate-btn">Generate Password</button>
+            <div class="row justify-content-center">
+                <div class="col-12 text-center">
+                    <button class="btn btn-outline-primary btn-light" id="generate-btn">Generate Password</button>
+                </div>
             </div>
 
             <!-- All the config for generating the password -->
-            <section>
-                <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="lowercase-check" checked disabled>
-                    <label class="form-check-label" for="lowercase-check">Lowercase [a,g,y,e]</label>
-                </div>
-                <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="uppercase-check">
-                    <label class="form-check-label" for="uppercase-check">Uppercase [A,G,Y,E]</label>
-                </div>
-                <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="numbers-check">
-                    <label class="form-check-label" for="numbers-check">Numbers [4,8,2,3]</label>
-                </div>
-                <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="symbols-check">
-                    <label class="form-check-label" for="symbols-check">Symbols [%,$,#,&]</label>
-                </div>
+            <section class="d-flex justify-content-center align-items-center flex-column" id="options-section">
+                <article id="options-container">
+                    <div id="options-subcontainer">
+                        <div class="form-check form-switch mb-2">
+                            <input class="form-check-input" type="checkbox" id="lowercase-check" checked disabled>
+                            <label class="form-check-label" for="lowercase-check">Lowercase [a,g,y,e]</label>
+                        </div>
+                        <div class="form-check form-switch mb-2">
+                            <input class="form-check-input" type="checkbox" id="uppercase-check">
+                            <label class="form-check-label" for="uppercase-check">Uppercase [A,G,Y,E]</label>
+                        </div>
+                        <div class="form-check form-switch mb-2">
+                            <input class="form-check-input" type="checkbox" id="numbers-check">
+                            <label class="form-check-label" for="numbers-check">Numbers [4,8,2,3]</label>
+                        </div>
+                        <div class="form-check form-switch mb-2">
+                            <input class="form-check-input" type="checkbox" id="symbols-check">
+                            <label class="form-check-label" for="symbols-check">Symbols [%,$,#,&]</label>
+                        </div>
+                    </div>
+                </article>
             </section>
-        </section>
-    </main>
-    <footer>
+        <footer>
 
-    </footer>
-    <!-- Bootstrap JavaScript Libraries -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
-        </script>
+        </footer>
+        <!-- Bootstrap JavaScript Libraries -->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+            integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+            </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
-        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
-        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+            integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+            </script>
 
-    <script src="../App/Main.js"></script>
+        <script src="../App/Main.js"></script>
 </body>
+</div>
 
 </html>
