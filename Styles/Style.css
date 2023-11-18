@@ -1,29 +1,57 @@
+body {
+    font-family: Helvetica;
+    font-size: 18.5px;
+}
+
+body::-webkit-scrollbar {
+    width: 6px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #0d6efd;
+    border-radius: 6px;
+}
+
+body::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
 #header-container {
     background-color: #112f3d;
 }
 
 #jumbotron-container {
     padding-top: 30px;
-    background-color: #aee3eb;
-}
-
-body {
-    font-family: Helvetica;
-    font-size: 18.5px;
+    background-color: #9AD1DE;
 }
 
 #logo {
-    width: 75%;
-    height: 80%;
+    padding: 18px;
+    width: 35%;
+    height: 40%;
+}
+
+#input-general-container {
+    background-color: #D3F2FA;
 }
 
 #input-container {
-    padding-top: 50px;
+    padding: 50px 50px;
+}
+
+#progression-container,
+#options-section,
+#btn-container {
+    background-color: #eff9fd;
 }
 
 #progression-container {
     padding-top: 25px;
     padding-bottom: 25px;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    background-color: #2a383b;
 }
 
 #generate-btn {
@@ -36,7 +64,7 @@ body {
 }
 
 #options-container {
-    background-color: #e2eeff;
+    background-color: #e7f0fd;
     border-radius: 15px;
 }
 
