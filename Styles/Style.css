@@ -77,22 +77,30 @@ input[type="range"]::-webkit-slider-runnable-track {
     padding: 25px;
 }
 
+.rrss,
+.mail {
+    text-decoration: none;
+}
+
 footer,
 .rrss:link,
-.rrss:visited {
-    color: rgb(196, 196, 196);
+.mail:link,
+.rrss:visited,
+.mail:visited {
+    color: rgb(190, 190, 190);
 }
 
 .rrss {
-    text-decoration: none;
     padding-right: 32px;
     padding-left: 32px;
 }
 
-.rrss:hover {
-    color: rgb(128, 128, 128);
+.rrss:hover,
+.mail:hover {
+    color: rgb(102, 102, 102);
 }
 
-.rrss:active {
+.rrss:active,
+.mail:active {
     color: #0d6efd;
 }
