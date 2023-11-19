@@ -1,6 +1,6 @@
 body {
     font-family: Helvetica;
-    font-size: 18.5px;
+    font-size: 19.5px;
 }
 
 body::-webkit-scrollbar {
@@ -16,7 +16,8 @@ body::-webkit-scrollbar-track {
     background-color: #f1f1f1;
 }
 
-#header-container {
+#header-container,
+footer {
     background-color: #112f3d;
 }
 
@@ -33,6 +34,10 @@ body::-webkit-scrollbar-track {
 
 #input-general-container {
     background-color: #D3F2FA;
+}
+
+#password-generated {
+    font-size: 25px;
 }
 
 #input-container {
@@ -55,12 +60,12 @@ input[type="range"]::-webkit-slider-runnable-track {
 }
 
 #generate-btn {
-    /* padding-top: 25px; */
     width: 500px;
 }
 
 #options-section {
     padding-top: 25px;
+    padding-bottom: 70px;
 }
 
 #options-container {
