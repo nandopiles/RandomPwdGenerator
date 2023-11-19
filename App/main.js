@@ -163,5 +163,5 @@ document.getElementById('copy-btn').addEventListener('click', () => {
     toast.show();
     setTimeout(() => {
         toast.hide();
-    }, 2000);
+    }, 3000);
 })
