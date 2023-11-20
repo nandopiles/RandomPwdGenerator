@@ -1,3 +1,7 @@
+let nameApplication = "";
+
+
+
 /**
  * Gets the name of the application which has to filter the passwords.
  * @returns {String}
@@ -31,7 +35,7 @@ const deletePassword = (listBtn) => {
 
                     passwordList.splice(index, 1);
                     localStorage.setItem('passwordList', JSON.stringify(passwordList));
-                    loadPasswords();
+                    loadPasswords(nameApplication);
                 }
             });
         });
@@ -52,7 +56,7 @@ const loadPasswords = (nameApplication) => {
         const row = `
         <tr>
             <td>${element.emailValue}</td>
-            <td>${element.linkValue}</td>
+            <td><a href="${element.linkValue}">${element.linkValue}</a></td>
             <td>${element.passwordValue}</td>
             <td><button type="button" class="btn btn-danger" name="delete-btn">X</button></td>
         </tr>`
@@ -71,5 +75,5 @@ document.getElementById('password-to-find').addEventListener('keyup', (event) =>
         window.location = `ListPasswords.html?name=${document.getElementById('password-to-find').value}`
 });
 
-let nameApplication = getNameApplicationToSearch();
+nameApplication = getNameApplicationToSearch();
 loadPasswords(nameApplication);
