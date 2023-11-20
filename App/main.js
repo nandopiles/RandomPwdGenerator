@@ -182,6 +182,7 @@ document.getElementById('modal-show-password').addEventListener('click', () => {
     document.getElementById('modal-password').setAttribute('type', type);
 });
 
+// Saves the info of the password.
 document.getElementById('modal-form').addEventListener('submit', (event) => {
     event.preventDefault();
 
@@ -211,4 +212,7 @@ document.getElementById('copy-btn').addEventListener('click', () => {
     setTimeout(() => {
         toast.hide();
     }, 3000);
-})
+});
+
+// Redirects to the List Passwords Page to find all the passwords of the application specified in the search box.
+document.getElementById('search-btn').addEventListener('click', () => window.location = `ListPasswords.html?name=${document.getElementById('password-to-find').value}`);
