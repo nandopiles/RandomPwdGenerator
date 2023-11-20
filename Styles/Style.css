@@ -27,8 +27,8 @@ footer {
 }
 
 #logo {
-    padding: 18px;
-    width: 30%;
+    padding: 18px 18px;
+    width: 34%;
     height: 40%;
 }
 
@@ -46,7 +46,9 @@ footer {
 
 #progression-container,
 #options-section,
-#btn-container {
+#btn-container,
+#back-btn-container,
+#table-container {
     background-color: #eff9fd;
 }
 
@@ -77,8 +79,7 @@ input[type="range"]::-webkit-slider-runnable-track {
     padding: 25px;
 }
 
-.rrss,
-.mail {
+.rrss {
     text-decoration: none;
 }
 
@@ -103,4 +104,8 @@ footer,
 .rrss:active,
 .mail:active {
     color: #0d6efd;
+}
+
+table {
+    text-align: center;
 }

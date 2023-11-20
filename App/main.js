@@ -38,16 +38,6 @@ const copyPasswordGenerated = () => {
 };
 
 /**
- * Saves the password in the Local Storage with the key passed by parameter.
- * @param {String} password
- * @param {String} key
- * @returns {void}
- */
-const saveInLocalStorage = (password, key) => {
-
-};
-
-/**
  * Saves the password with the name of the app where it's use.
  * @returns {void}
  */
@@ -115,6 +105,22 @@ const generatePassword = (dictionary, length) => {
     return password;
 };
 
+/**
+ * Adds the info of the new password into the password's list saved.
+ * @param {String} linkValue
+ * @param {String} emailValue
+ * @param {String} passwordValue
+ * @returns {void}
+ */
+const saveInfo = (linkValue, emailValue, passwordValue) => {
+    const savedPasswords = JSON.parse(localStorage.getItem('passwordList')) || [];
+    const insertInfoNewPassword = { linkValue, emailValue, passwordValue };
+
+    savedPasswords.push(insertInfoNewPassword);
+    window.localStorage.setItem('passwordList', JSON.stringify(savedPasswords));
+};
+
+
 
 setInitialRangeValues();
 document.getElementById('num-characts').addEventListener('mousemove', () =>
@@ -153,8 +159,49 @@ document.getElementById('generate-btn').addEventListener('click', () => {
 document.getElementById('copy-btn').addEventListener('click', copyPasswordGenerated);
 document.getElementById('save-btn').addEventListener('click', savePassword);
 
-// Displays the save's password modal.
-document.getElementById('modalId').addEventListener('show.bs.modal', (event) => event.relatedTarget.getAttribute('data-bs-whatever'));
+// Displays the modal.
+document.getElementById('modalId').addEventListener('show.bs.modal', (event) => {
+    event.relatedTarget.getAttribute('data-bs-whatever'); // Displays the save's password modal.
+    document.getElementById('modal-password').value = document.getElementById('password-generated').value;
+});
+
+// When the modal is hidden all the camps will be reset.
+document.getElementById('modalId').addEventListener('hidden.bs.modal', () => {
+    document.getElementById('modal-input-email').value = "";
+    document.getElementById('modal-input-link').value = "";
+});
+
+// Shows the password in a text's format and not with the typical password's format.
+document.getElementById('modal-show-password').addEventListener('click', () => {
+    let type = "password";
+
+    (document.getElementById('modal-password').type === type) ?
+        type = "text" :
+        type = "password";
+
+    document.getElementById('modal-password').setAttribute('type', type);
+});
+
+document.getElementById('modal-form').addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    if (document.getElementById('modal-password').value === "" ||
+        document.getElementById('modal-input-email').value === "" ||
+        document.getElementById('modal-input-link').value === "") {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            html: 'You must fill all the camps before saving the password.<br><br>info: <i>If there\'s any password in the camp is because you have to generated it before.</i>',
+        });
+    } else {
+        saveInfo(document.getElementById('modal-input-link').value, document.getElementById('modal-input-email').value, document.getElementById('modal-password').value);
+        Swal.fire({
+            icon: 'success',
+            title: 'Saved',
+            html: 'The password has been saved successfully'
+        });
+    }
+});
 
 // Displays the copie's toast.
 document.getElementById('copy-btn').addEventListener('click', () => {
