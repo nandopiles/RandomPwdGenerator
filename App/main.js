@@ -216,3 +216,7 @@ document.getElementById('copy-btn').addEventListener('click', () => {
 
 // Redirects to the List Passwords Page to find all the passwords of the application specified in the search box.
 document.getElementById('search-btn').addEventListener('click', () => window.location = `ListPasswords.html?name=${document.getElementById('password-to-find').value}`);
+document.getElementById('password-to-find').addEventListener('keyup', (event) => {
+    if (event.key === 'Enter')
+        window.location = `ListPasswords.html?name=${document.getElementById('password-to-find').value}`
+});
