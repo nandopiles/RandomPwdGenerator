@@ -120,6 +120,17 @@ const saveInfo = (linkValue, emailValue, passwordValue) => {
     window.localStorage.setItem('passwordList', JSON.stringify(savedPasswords));
 };
 
+/**
+ * Validates if the email has the correct format.
+ * @param {String} email
+ * @returns {Boolean}
+ */
+const emailValidator = (email) => {
+    const pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    console.log(pattern.test(email));
+    return !pattern.test(email);
+};
+
 
 
 setInitialRangeValues();
@@ -188,13 +199,15 @@ document.getElementById('modal-form').addEventListener('submit', (event) => {
 
     if (document.getElementById('modal-password').value === "" ||
         document.getElementById('modal-input-email').value === "" ||
-        document.getElementById('modal-input-link').value === "") {
+        document.getElementById('modal-input-link').value === "" ||
+        emailValidator(document.getElementById('modal-input-email').value)) {
         Swal.fire({
             icon: 'error',
             title: 'Error',
-            html: 'You must fill all the camps before saving the password.<br><br>info: <i>If there\'s any password in the camp is because you have to generated it before.</i>',
+            html: 'You must fill all the camps before saving the password.<br><br><br><strong>info: </strong><i>If there\'s any password in the camp is because you have to generated it before.</i><br><br><strong>Email Format: </strong>user@example.com<br><i>You can use letters, numbers, and the following special characters: . _ % + -</i>',
         });
     } else {
+        console.log(document.getElementById('modal-input-email').value);
         saveInfo(document.getElementById('modal-input-link').value, document.getElementById('modal-input-email').value, document.getElementById('modal-password').value);
         Swal.fire({
             icon: 'success',
